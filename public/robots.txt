@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://айкос-илюма.рф/sitemap.xml

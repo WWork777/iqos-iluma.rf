@@ -1,0 +1,52 @@
+export const dynamic = "force-dynamic";
+import ClientFilters from "./client";
+
+async function fetchItems() {
+  const res = await fetch("https://айкос-илюма.рф/api/products/getiqos", {
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error("Ошибка загрузки товаров");
+  return res.json();
+}
+
+export async function generateMetadata() {
+  const title = "Эксклюзивные Айкос Илюма и стики Terea — лимитированные серии";
+  return {
+    title,
+    description:
+      "Ограниченные серии Айкос Илюма и стиков Terea. Москва. Редкие модели с доставкой в день заказа.",
+    alternates: {
+      canonical: `https://айкос-илюма.рф/products/iqosexclusive`,
+    },
+    openGraph: {
+      title: `Эксклюзивные Айкос Илюма и стики Terea — лимитированные серии`,
+      description: `Ограниченные серии Айкос Илюма и стиков Terea. Москва. Редкие модели с доставкой в день заказа.`,
+      url: `https://айкос-илюма.рф/products/iqosexclusive`,
+      images: [
+        {
+          url: `/favicon/web-app-manifest-512x512`,
+          alt: `IqosIluma`,
+        },
+      ],
+    },
+  };
+}
+
+export default async function Page() {
+  let items = [];
+  try {
+    items = await fetchItems();
+  } catch (error) {
+    console.error(error);
+    return <p>Ошибка загрузки данных</p>;
+  }
+
+  return (
+    <div className="products-container">
+      <h1 style={{ position: "absolute", zIndex: "-9999" }}>
+        Лимитированные Iqos Iluma
+      </h1>
+      <ClientFilters items={items} />
+    </div>
+  );
+}

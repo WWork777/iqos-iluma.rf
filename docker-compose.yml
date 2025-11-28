@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: iqos-iluma.rf
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - VIRTUAL_HOST=xn----7sbb5adgjio4a0m.xn--p1ai
+      - LETSENCRYPT_HOST=xn----7sbb5adgjio4a0m.xn--p1ai
+      - LETSENCRYPT_EMAIL=youremail@example.com
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
