@@ -9,9 +9,13 @@ services:
       - NODE_ENV=production
       - VIRTUAL_HOST=xn----7sbb5adgjio4a0m.xn--p1ai
       - LETSENCRYPT_HOST=xn----7sbb5adgjio4a0m.xn--p1ai
-      - LETSENCRYPT_EMAIL=youremail@example.com
+      - LETSENCRYPT_EMAIL=qwe@example.com
     networks:
       - web
+    volumes:
+      # Все сайты используют одну и ту же папку с картинками
+      - /var/www/iluma-store.ru/images:/app/public/images:ro
+      - /var/www/iqos-iluma.rf/.next:/app/.next
 
 networks:
   web:
