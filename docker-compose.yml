@@ -9,7 +9,7 @@ services:
       - NODE_ENV=production
       - VIRTUAL_HOST=xn----7sbb5adgjio4a0m.xn--p1ai
       - LETSENCRYPT_HOST=xn----7sbb5adgjio4a0m.xn--p1ai
-      - LETSENCRYPT_EMAIL=qwe@example.com
+      - LETSENCRYPT_EMAIL=qwe@gmail.com
     networks:
       - web
     volumes:
