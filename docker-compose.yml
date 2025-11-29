@@ -7,9 +7,10 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
-      - VIRTUAL_HOST=xn----7sbb5adgjio4a0m.xn--p1ai
-      - LETSENCRYPT_HOST=xn----7sbb5adgjio4a0m.xn--p1ai
+      - VIRTUAL_HOST=xn----7sbb5adgjio4a0m.xn--p1ai, www.xn----7sbb5adgjio4a0m.xn--p1ai
+      - LETSENCRYPT_HOST=xn----7sbb5adgjio4a0m.xn--p1ai, www.xn----7sbb5adgjio4a0m.xn--p1ai
       - LETSENCRYPT_EMAIL=qwe@gmail.com
+      - REDIRECT_www.xn----7sbb5adgjio4a0m.xn--p1ai=xn----7sbb5adgjio4a0m.xn--p1ai
     networks:
       - web
     volumes:
