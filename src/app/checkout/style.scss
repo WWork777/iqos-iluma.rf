@@ -8,6 +8,18 @@
     display: none !important;
 }
 .checkout-page{
+    .plitka{
+        h1{
+        margin-bottom: 20px;
+        }
+        h5{
+        color: red;
+        }
+
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 15px;
+    }
     margin: 150px auto;
     padding: 0 auto;
     max-width: 1300px;
@@ -97,12 +109,22 @@
         }
     }
     .checkout-table{
+        
         background-color: white;
         border-radius: 15px;
         padding: 30px;
         margin-top: 125px;
         width: 40%;
         height: fit-content;
+        .privacy-input{
+            background-color: #acc864 !important;
+            color: #acc864 !important;
+            accent-color: #acc864;
+            padding: 5px;
+            width: 20px; /* Задает ширину */
+            height: 20px;
+            margin-right: 5px;
+        }
         h4{
             border-bottom: 1px solid rgba(242, 242, 247, 1);
         }
@@ -146,8 +168,8 @@
         }
             button{
             width: 100%;
-            background-color: $font;
-            color: white;
+            background-color: #acc864;
+            color: $font;
             font-size: 18px;
             font-weight: 700;
             border-radius: 15px;
@@ -167,23 +189,6 @@
             margin-top: 48%;
         }
 
-        .checkout-privacy {
-            input[type='checkbox'] {
-                width: 14px !important;
-                height: 14px !important;
-                cursor: pointer;
-                accent-color: #4caf50; // Зеленый цвет для чекбокса
-                // Для браузеров, которые не поддерживают accent-color
-                &::before {
-                background-color: #4caf50;
-                }
-            }
-            // Кастомный стиль для лучшей видимости
-            input[type='checkbox']:checked {
-                background-color: #4caf50;
-                border-color: #4caf50;
-            }
-        }
     }
 }
 
