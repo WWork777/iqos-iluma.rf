@@ -7,7 +7,7 @@ import PhoneInput from "react-phone-input-2";
 import Link from "next/link";
 
 const CheckoutPage = () => {
-  const [selectedMethod, setSelectedMethod] = useState("pickup");
+  const [selectedMethod, setSelectedMethod] = useState("delivery");
   const [loading, setLoading] = useState(false);
   const {
     cartItems,
