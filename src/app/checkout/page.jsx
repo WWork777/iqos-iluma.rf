@@ -95,6 +95,7 @@ const CheckoutPage = () => {
       newErrors.lastName = "Введите имя";
     }
 
+    // Валидация Telegram (необязательное поле, но если заполнено - проверяем формат)
     if (
       formData.telegram.trim() &&
       !/^[@a-zA-Z0-9_]{5,32}$/.test(formData.telegram.replace(/^@/, ""))
@@ -105,6 +106,10 @@ const CheckoutPage = () => {
     if (!formData.privacyConsent) {
       newErrors.privacyConsent =
         "Требуется согласие на обработку персональных данных";
+    }
+
+    if (selectedMethod === "pickup") {
+      newErrors.pickup = "Самовывоз временно недоступен";
     }
 
     setErrors(newErrors);
@@ -200,7 +205,7 @@ const CheckoutPage = () => {
 
     if (validateForm()) {
       const totalPrice = calculateTotalPrice();
-      const site = "iqos-iluma.rf";
+      const site = "айкос-илюма.рф";
 
       const moscowCities = [
         "москва",
@@ -830,6 +835,7 @@ ${formattedCart}
             ВАЖНО! Укажите Ваш номер в WhatsApp или Telegram ник для связи
           </h5>
         </div>
+
         <form onSubmit={handleSubmit} ref={formRef}>
           <div className="checkout-name">
             <h4>Контактные данные</h4>
@@ -887,8 +893,17 @@ ${formattedCart}
                 type="button"
                 className={selectedMethod === "pickup" ? "active" : ""}
                 onClick={() => setSelectedMethod("pickup")}
+                disabled={true}
+                style={{
+                  opacity: 0.5,
+                  cursor: "not-allowed",
+                }}
               >
                 Самовывоз
+                <br />
+                <span style={{ fontSize: "14px", color: "rgb(198, 58, 58)" }}>
+                  Недоступен
+                </span>
               </button>
               {onlyPacksAndBlocks && totalQuantity < 10 && !hasBlock ? (
                 <button type="button" className={selectedMethod} disabled>
@@ -907,6 +922,24 @@ ${formattedCart}
                 </button>
               )}
             </div>
+
+            {selectedMethod === "pickup" && (
+              <p
+                style={{
+                  color: "rgb(198, 58, 58)",
+                  fontWeight: "bold",
+                  marginTop: "10px",
+                }}
+              >
+                ⚠️ Самовывоз временно недоступен. Пожалуйста, выберите доставку.
+              </p>
+            )}
+
+            {errors.pickup && (
+              <p className="error" style={{ color: "rgb(198, 58, 58)" }}>
+                {errors.pickup}
+              </p>
+            )}
 
             {selectedMethod === "delivery" && (
               <div className="checkout-delivery-address">
@@ -1016,14 +1049,31 @@ ${formattedCart}
               )}
             </div>
             <button
+              onClick={handleExternalSubmit}
               disabled={
                 loading ||
                 selectedMethod === "pickup" ||
                 (onlyPacksAndBlocks && totalQuantity < 10 && !hasBlock)
               }
+              style={{
+                opacity: selectedMethod === "pickup" ? 0.5 : 1,
+                cursor: selectedMethod === "pickup" ? "not-allowed" : "pointer",
+              }}
             >
               {loading ? "Загрузка..." : "Заказать"}
             </button>
+            {selectedMethod === "pickup" && (
+              <p
+                style={{
+                  color: "rgb(198, 58, 58)",
+                  fontSize: "14px",
+                  marginTop: "10px",
+                  textAlign: "center",
+                }}
+              >
+                Самовывоз недоступен. Выберите доставку для оформления заказа.
+              </p>
+            )}
           </div>
         ) : (
           <div>
