@@ -44,7 +44,7 @@ export default function Home() {
       <Exclusive />
       <New />
       <About />
-      <Reviews />
+      {/* <Reviews /> */}
     </>
   );
 }
