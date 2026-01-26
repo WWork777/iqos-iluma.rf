@@ -16,12 +16,12 @@ export async function generateMetadata() {
     description:
       "Продажа Айкос Илюма Prime, One и эксклюзивных серий. Сертифицированная продукция с гарантией и доставкой по Москве.",
     alternates: {
-      canonical: `https://айкос-илюма.рф/products/iqos`,
+      canonical: `https://айкос-илюма.рф/products/ustrojstva-iqos-iluma`,
     },
     openGraph: {
       title: `Оригинальные Айкос Илюма — все модели в наличии в Москве`,
       description: `Продажа Айкос Илюма Prime, One и эксклюзивных серий. Сертифицированная продукция с гарантией и доставкой по Москве.`,
-      url: `https://айкос-илюма.рф/products/iqos`,
+      url: `https://айкос-илюма.рф/products/ustrojstva-iqos-iluma`,
       images: [
         {
           url: `/favicon/web-app-manifest-512x512`,
@@ -43,7 +43,9 @@ export default async function Page() {
 
   return (
     <div className="products-container">
-      <h1 style={{ position: "absolute", zIndex: "-9999" }}>Iqos Iluma</h1>
+      <h1 className="page-title">
+        Оригинальные устройства IQOS ILUMA — купить в Москве
+      </h1>
       <ClientFilters items={items} />
     </div>
   );
