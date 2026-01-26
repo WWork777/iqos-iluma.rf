@@ -83,19 +83,19 @@ export default function ArticlePage({ params }) {
         "@type": "ListItem",
         position: 1,
         name: "Главная",
-        item: "https://xn----7sbb5adgjio4a0m.xn--p1ai/",
+        item: "https://айкос-илюма.рф",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Блог",
-        item: "https://xn----7sbb5adgjio4a0m.xn--p1ai//blog",
+        item: "https://айкос-илюма.рф/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: article.title,
-        item: `https://xn----7sbb5adgjio4a0m.xn--p1ai//blog/${article.slug}`,
+        item: `https://айкос-илюма.рф/blog/${article.slug}`,
       },
     ],
   };
@@ -112,19 +112,19 @@ export default function ArticlePage({ params }) {
     author: {
       "@type": "Person",
       name: article.author || "Эксперт IQOS",
-      url: "https://xn----7sbb5adgjio4a0m.xn--p1ai/",
+      url: "https://айкос-илюма.рф",
     },
     publisher: {
       "@type": "Organization",
       name: "IQOS Iluma Store",
       logo: {
         "@type": "ImageObject",
-        url: "https://xn----7sbb5adgjio4a0m.xn--p1ai//logo.png",
+        url: "https://айкос-илюма.рф/logo.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://xn----7sbb5adgjio4a0m.xn--p1ai//blog/${article.slug}`,
+      "@id": `https://айкос-илюма.рф/blog/${article.slug}`,
     },
   };
 
