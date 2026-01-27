@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import ClientFilters from "./client";
 
-async function safeFetch() {
+async function safeFetch(url, options = {}) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
 
