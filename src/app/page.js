@@ -9,14 +9,14 @@ import Exclusive from "../../components/Home/Exclusive/Exclusive";
 import Reviews from "../../components/Home/Reviews/Reviews";
 
 export const metadata = {
-  title: "Iqos Iluma купить | Доставка по Москве и России",
+  title: "Iqos Iluma купить в Москве | Доставка по России",
   description:
-    "Онлайн-заказ IQOS Iluma и стиков Terea с доставкой. Оригинальная продукция, все модели в наличии. Быстрая отправка по всей РФ.",
+    "Онлайн-заказ IQOS Iluma и стиков Terea с доставкой в Москве. Оригинальная продукция, все модели в наличии. Быстрая отправка по всей РФ.",
   alternates: {
     canonical: "https://айкос-илюма.рф",
   },
   openGraph: {
-    title: "Заказать IQOS Iluma и стики Terea | Доставка по Москве и России",
+    title: "Iqos Iluma купить в Москве | Доставка по России",
     description:
       "Онлайн-заказ IQOS Iluma и стиков Terea с доставкой. Оригинальная продукция, все модели в наличии. Быстрая отправка по всей РФ.",
     url: "https://айкос-илюма.рф",
@@ -32,7 +32,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Заказать IQOS Iluma и стики Terea | Доставка по Москве и России",
+    title: "Iqos Iluma купить в Москве | Доставка по России",
     description:
       "Онлайн-заказ IQOS Iluma и стиков Terea с доставкой. Оригинальная продукция, все модели в наличии. Быстрая отправка по всей РФ.",
     images: ["https://айкос-илюма.рф/favicon/og-image.png"],
