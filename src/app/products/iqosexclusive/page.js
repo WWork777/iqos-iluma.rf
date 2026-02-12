@@ -21,42 +21,40 @@ async function safeFetch(url, options = {}) {
 }
 
 async function fetchItems() {
-  // Используем relative URL для внутреннего API роута
   const baseUrl =
     process.env.NODE_ENV === "production" && typeof window === "undefined"
-      ? "http://localhost:3004" // или ваш production URL
+      ? "http://localhost:3006"
       : "";
 
   try {
-    return await safeFetch(`${baseUrl}/api/getiqos`, {
+    return await safeFetch(`${baseUrl}/api/products/getiqos`, {
       cache: "no-store",
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
   } catch (error) {
-    console.error("Fetch error:", error);
+    console.error("Fetch error for iqos devices:", error.message);
     throw new Error("Ошибка загрузки товаров");
   }
 }
 
 export async function generateMetadata() {
-  const title = "Эксклюзивные Айкос Илюма и стики Terea — лимитированные серии";
+  const title = "Купить устройства IQOS ILUMA Мсоква";
+
   return {
     title,
     description:
-      "Ограниченные серии Айкос Илюма и стиков Terea. Москва. Редкие модели с доставкой в день заказа.",
+      "Каталог устройств IQOS ILUMA с доставкой по Москве. Лучший выбор вкусов и брендов!",
     alternates: {
       canonical: `https://айкос-илюма.рф/products/iqosexclusive`,
     },
     openGraph: {
-      title: `Эксклюзивные Айкос Илюма и стики Terea — лимитированные серии`,
-      description: `Ограниченные серии Айкос Илюма и стиков Terea. Москва. Редкие модели с доставкой в день заказа.`,
+      title: "Купить устройства IQOS ILUMA в TereaIqos с доставкой по Москве",
+      description:
+        "Каталог лимитированных устройств IQOS ILUMA с доставкой по всей России. Лучший выбор вкусов и брендов!",
       url: `https://айкос-илюма.рф/products/iqosexclusive`,
       images: [
         {
-          url: `/favicon/web-app-manifest-512x512.png`,
-          alt: `IqosIluma`,
+          url: `https://айкос-илюма.рф/favicon/web-app-manifest-512x512.png`,
+          alt: `Устройства IQOS ILUMA`,
         },
       ],
     },
@@ -69,13 +67,13 @@ export default async function Page() {
   try {
     items = await fetchItems();
   } catch (error) {
-    console.error("Page error:", error);
+    console.error("Page fetch error:", error);
     return (
       <div style={{ padding: "40px", textAlign: "center" }}>
-        <h1>Ошибка загрузки данных</h1>
-        <p>Не удалось загрузить информацию о товарах.</p>
-        <a href="/products" style={{ color: "blue" }}>
-          Вернуться в каталог
+        <h1>Ошибка загрузки</h1>
+        <p>Не удалось загрузить список устройств.</p>
+        <a href="/" style={{ color: "blue" }}>
+          На главную
         </a>
       </div>
     );
@@ -83,8 +81,8 @@ export default async function Page() {
 
   return (
     <div className="products-container">
-      <h1 style={{ position: "absolute", zIndex: "-9999" }}>
-        Лимитированные Iqos Iluma
+      <h1 className="page-title" style={{ marginBottom: "2rem" }}>
+        Лимитированные устройства IQOS ILUMA с доставкой
       </h1>
       <ClientFilters items={items} />
     </div>
