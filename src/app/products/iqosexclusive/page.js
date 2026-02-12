@@ -28,7 +28,7 @@ async function fetchItems() {
       : "";
 
   try {
-    return await safeFetch(`${baseUrl}/api/iqosexclusive`, {
+    return await safeFetch(`${baseUrl}/api/getiqos`, {
       cache: "no-store",
       headers: {
         "Content-Type": "application/json",
