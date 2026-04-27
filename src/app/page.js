@@ -7,6 +7,7 @@ import About from "../../components/Home/About/About";
 import New from "../../components/Home/New/New";
 import Exclusive from "../../components/Home/Exclusive/Exclusive";
 import Reviews from "../../components/Home/Reviews/Reviews";
+import BlockModal from "../../components/ModalManager/BlockModal/BlockModal";
 
 export const metadata = {
   title: "Iqos Iluma купить Москва | Доставка по России",
@@ -87,6 +88,8 @@ export default function Home() {
           <Reviews />
         </section>
       </main>
+
+      <BlockModal />
     </>
   );
 }
